@@ -331,7 +331,7 @@ const Chat = ({
                   className="w-2 h-2 bg-[#E6B800] rounded-full"
                 />
               </div>
-              <span className="text-sm text-slate-500">Course Buddy is thinking...</span>
+              <span className="text-sm text-slate-500">Thinking...</span>
             </motion.div>
           )}
         </AnimatePresence>
