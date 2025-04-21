@@ -292,7 +292,7 @@ const Chat = ({
         <div className="flex items-center">
           <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center mr-3 overflow-hidden">
             <video 
-              src="https://global.divhunt.com/b5d19f4978592b80c4f204019b001449_500647.mp4"
+              src="/bird_waving.mp4"
               autoPlay
               loop
               muted
