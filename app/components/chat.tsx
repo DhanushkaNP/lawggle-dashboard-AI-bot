@@ -19,7 +19,7 @@ const UserMessage = ({ text }: { text: string }) => {
       initial={{ opacity: 0, y: 20, scale: 0.95 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.3 }}
-      className="bg-gradient-to-r from-[#E6B800] to-[#FFD700] text-white p-4 rounded-2xl rounded-tr-none mb-3 self-end max-w-[80%] shadow-md"
+      className="bg-gradient-to-r from-[#5D5FEF] to-[#7B7CFF] text-white p-4 rounded-2xl rounded-tr-none mb-3 self-end max-w-[80%] shadow-md"
     >
       {text}
     </motion.div>
@@ -32,7 +32,7 @@ const AssistantMessage = ({ text }: { text: string }) => {
       initial={{ opacity: 0, y: 20, scale: 0.95 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.3 }}
-      className="bg-gradient-to-r from-gray-50 to-[#FFEBAA] p-4 rounded-2xl rounded-tl-none mb-3 self-start max-w-[80%] shadow-sm text-slate-800 border border-[#FFD700]/30"
+      className="bg-gradient-to-r from-gray-50 to-[#E4E5FF] p-4 rounded-2xl rounded-tl-none mb-3 self-start max-w-[80%] shadow-sm text-slate-800 border border-[#5D5FEF]/30"
     >
       <Markdown className="prose prose-sm">{text}</Markdown>
     </motion.div>
@@ -45,16 +45,16 @@ const CodeMessage = ({ text }: { text: string }) => {
       initial={{ opacity: 0, y: 20, scale: 0.95 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.3 }}
-      className="bg-gradient-to-r from-slate-900 to-[#E6B800] text-slate-100 p-4 rounded-2xl mb-3 self-start max-w-[80%] font-mono text-sm overflow-x-auto shadow-lg"
+      className="bg-gradient-to-r from-slate-900 to-[#5D5FEF] text-slate-100 p-4 rounded-2xl mb-3 self-start max-w-[80%] font-mono text-sm overflow-x-auto shadow-lg"
     >
       <div className="flex gap-1 mb-2">
         <div className="w-3 h-3 rounded-full bg-rose-500"></div>
         <div className="w-3 h-3 rounded-full bg-amber-400"></div>
-        <div className="w-3 h-3 rounded-full bg-[#FFD700]"></div>
+        <div className="w-3 h-3 rounded-full bg-[#7B7CFF]"></div>
       </div>
       {text.split("\n").map((line, index) => (
         <div key={index} className="group">
-          <span className="text-[#FFD700] mr-2 group-hover:text-[#FFEBAA] transition-colors">{`${index + 1}. `}</span>
+          <span className="text-[#7B7CFF] mr-2 group-hover:text-[#E4E5FF] transition-colors">{`${index + 1}. `}</span>
           {line}
         </div>
       ))}
@@ -87,7 +87,7 @@ const Chat = ({
   const [userInput, setUserInput] = useState("");
   const [messages, setMessages] = useState<{ role: "user" | "assistant" | "code"; text: string; }[]>([{
     "role": "assistant",
-    "text": "**Hey there! I'm your Ai compagnon ! 👋** No need to head to CHATGPT, you can ask your questions here "
+    "text": "**Heyy! I'm your AI Assistant ! 👋** Ask me anything—right here on your dashboard. No need to head to ChatGPT! "
   }]);
   const [inputDisabled, setInputDisabled] = useState(false);
   const [threadId, setThreadId] = useState("");
@@ -285,23 +285,30 @@ const Chat = ({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="flex flex-col w-full h-full bg-white rounded-xl shadow-xl overflow-hidden border-0"
+      className="flex flex-col w-full h-full bg-white shadow-xl overflow-hidden border-0"
     >
       {/* Header */}
-      <div className="bg-gradient-to-r from-[#E6B800] to-[#FFD700] text-white p-4 shadow-md">
+      <div className="bg-gradient-to-r from-[#5D5FEF] to-[#7B7CFF] text-white p-4 shadow-md">
         <div className="flex items-center">
-          <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center mr-3">
-            <span className="text-xl">🤖</span>
+          <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center mr-3 overflow-hidden">
+            <video 
+              src="https://global.divhunt.com/b5d19f4978592b80c4f204019b001449_500647.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
+            />
           </div>
           <div>
-            <h1 className="font-bold text-lg">LawggleAI</h1>
-            <p className="text-xs text-[#FFEBAA]">Your AI compagnon</p>
+            <h1 className="font-bold text-lg">MatchBot Assistant</h1>
+            <p className="text-xs text-[#E4E5FF]">Your personalised AI lawyer assistant</p>
           </div>
         </div>
       </div>
       
       {/* Messages Area */}
-      <div className="flex-1 overflow-y-auto p-5 bg-gradient-to-b from-[#FFEBAA] to-white">
+      <div className="flex-1 overflow-y-auto p-5 bg-gradient-to-b from-[#E4E5FF] to-white">
         <AnimatePresence>
           {messages.map((msg, index) => (
             <div key={index} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
@@ -318,20 +325,20 @@ const Chat = ({
                 <motion.div 
                   animate={{ y: [0, -10, 0] }}
                   transition={{ repeat: Infinity, duration: 1, delay: 0 }}
-                  className="w-2 h-2 bg-[#E6B800] rounded-full"
+                  className="w-2 h-2 bg-[#5D5FEF] rounded-full"
                 />
                 <motion.div 
                   animate={{ y: [0, -10, 0] }}
                   transition={{ repeat: Infinity, duration: 1, delay: 0.2 }}
-                  className="w-2 h-2 bg-[#E6B800] rounded-full"
+                  className="w-2 h-2 bg-[#5D5FEF] rounded-full"
                 />
                 <motion.div 
                   animate={{ y: [0, -10, 0] }}
                   transition={{ repeat: Infinity, duration: 1, delay: 0.4 }}
-                  className="w-2 h-2 bg-[#E6B800] rounded-full"
+                  className="w-2 h-2 bg-[#5D5FEF] rounded-full"
                 />
               </div>
-              <span className="text-sm text-slate-500">Thinking...</span>
+              <span className="text-sm text-slate-500">Thinking..</span>
             </motion.div>
           )}
         </AnimatePresence>
@@ -341,11 +348,11 @@ const Chat = ({
       {/* Input Form */}
       <form
         onSubmit={handleSubmit}
-        className="flex p-4 bg-white border-t border-[#FFD700]/20 shadow-inner"
+        className="flex p-4 bg-white border-t border-[#5D5FEF]/20 shadow-inner"
       >
         <input
           type="text"
-          className="flex-1 px-4 py-3 bg-[#FFEBAA] focus:bg-white border border-[#FFD700]/30 rounded-l-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#E6B800] focus:border-transparent"
+          className="flex-1 px-4 py-3 bg-[#E4E5FF] focus:bg-white border border-[#5D5FEF]/30 rounded-l-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#5D5FEF] focus:border-transparent"
           value={userInput}
           onChange={(e) => setUserInput(e.target.value)}
           placeholder="Type your question here..."
@@ -355,10 +362,10 @@ const Chat = ({
           type="submit"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className={`px-6 py-3 bg-gradient-to-r from-[#E6B800] to-[#FFD700] text-white rounded-r-full font-medium ${
+          className={`px-6 py-3 bg-gradient-to-r from-[#5D5FEF] to-[#7B7CFF] text-white rounded-r-full font-medium ${
             inputDisabled 
               ? "opacity-50 cursor-not-allowed" 
-              : "hover:from-[#d1a700] hover:to-[#edc500]"
+              : "hover:from-[#4a4cce] hover:to-[#6a6be5]"
           }`}
           disabled={inputDisabled}
         >
@@ -369,7 +376,7 @@ const Chat = ({
                 transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                 className="w-5 h-5 border-2 border-white border-t-transparent rounded-full mr-2"
               />
-              <span>Sending...</span>
+              <span></span>
             </div>
           ) : (
             <>
