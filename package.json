@@ -11,6 +11,7 @@
   "dependencies": {
     "@tabler/icons-react": "^3.31.0",
     "framer-motion": "^12.6.3",
+    "lucide-react": "^0.525.0",
     "markdown-to-jsx": "^7.7.4",
     "next": "14.1.4",
     "openai": "^4.46.0",
