@@ -92,14 +92,6 @@ const AssistantMessage = ({ text }: { text: string }) => {
   return (
     <div className="flex justify-start items-start mb-6 group">
       <div className="w-12 h-12 rounded-full bg-[#A2C3E033]/20 flex items-center justify-center mr-3 overflow-hidden shadow-md ">
-        {/* <video 
-              src="/bird_waving.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-full object-cover"
-            /> */}
         <img
           src="/lawggle_ai_bot.png"
           alt="Assistant Avatar"
@@ -488,9 +480,14 @@ const Chat = ({
           ))}
           {isLoading && messages[messages.length - 1]?.role !== "assistant" && (
             <div className="flex justify-start items-start mb-6">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#A2C3E0] to-[#8AB4D3] mr-3 flex-shrink-0 flex items-center justify-center shadow-lg">
-                <Bot size={16} className="text-white" />
+              <div className="w-12 h-12 rounded-full bg-[#A2C3E033]/20 flex items-center justify-center mr-3 overflow-hidden shadow-md ">
+                <img
+                  src="/lawggle_ai_bot.png"
+                  alt="Assistant Avatar"
+                  className="w-full h-full object-cover"
+                />
               </div>
+
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
